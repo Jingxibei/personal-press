@@ -1,0 +1,30 @@
+name: Bug report
+description: Report a reproducible problem without including personal data.
+body:
+  - type: markdown
+    attributes:
+      value: "Please remove API keys, private sources, private calendar entries and identifying details from logs or screenshots. Report vulnerabilities privately through the Security tab when available."
+  - type: input
+    id: version
+    attributes:
+      label: Version and operating system
+      placeholder: 0.1.0-alpha.1 / Windows 11
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: printing
+    attributes:
+      label: Printing or export details, if relevant
+      description: Paper size, duplex setting, driver name and page count. State whether a job was submitted, uncertain, or failed before submission.
