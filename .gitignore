@@ -1,0 +1,15 @@
+node_modules/
+dist/
+src/assets/fonts/
+coverage/
+*.log
+*.env
+.env*
+!.env.example
+data/
+user-data/
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+

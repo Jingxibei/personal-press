@@ -1,0 +1,90 @@
+{
+  "name": "personal-press",
+  "version": "0.1.0-alpha.1",
+  "description": "A local-first personal newspaper for readers, e-readers and paper.",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "The Personal Press contributors",
+  "main": "src/main.cjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.mjs",
+    "check": "node scripts/check.mjs",
+    "prepare:fonts": "node scripts/prepare-fonts.mjs",
+    "postinstall": "node scripts/prepare.mjs",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --publish never",
+    "preview": "node scripts/preview.mjs",
+    "source:zip": "node scripts/source-archive.mjs"
+  },
+  "dependencies": {
+    "fast-xml-parser": "5.11.2",
+    "pdf-lib": "1.17.1"
+  },
+  "devDependencies": {
+    "@fontsource-variable/noto-serif-jp": "5.3.1",
+    "@fontsource-variable/noto-serif-sc": "5.3.1",
+    "@fontsource/libre-caslon-display": "5.3.0",
+    "electron": "44.9.1",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "org.personalpress.desktop",
+    "productName": "Personal Press",
+    "icon": "src/assets/icon.png",
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json",
+      "LICENSE",
+      "NOTICE",
+      "THIRD_PARTY_NOTICES.md"
+    ],
+    "extraMetadata": {
+      "private": true
+    },
+    "win": {
+      "icon": "src/assets/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ],
+      "category": "public.app-category.news",
+      "hardenedRuntime": true
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Office",
+      "maintainer": "The Personal Press contributors"
+    }
+  }
+}
